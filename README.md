@@ -15,7 +15,7 @@ This repository provides practical guidelines, templates, and workflows for mana
 - Severity matrix for incident prioritization
 - Incident response workflow
 - Communication templates for stakeholders
-- Postmortem templates focused on root cause and prevention
+- Post-incident review templates and immediate follow-up actions
 - Example runbooks for common production scenarios
 
 ## Why this matters
