@@ -1,23 +1,32 @@
 # Incident Management Playbook
 
-A structured approach to handling incidents in mission-critical, high-availability systems.
+A structured approach to handling incidents in mission-critical, high-availability systems. This repository provides practical guidelines, workflows, and real-world examples for managing production crises efficiently.
 
 ## Purpose
-This repository provides practical guidelines, templates, and workflows for managing production incidents efficiently, reducing impact, and improving recovery time (MTTR).
+The goal of this playbook is to reduce MTTR (Mean Time to Recovery) and ensure clear, consistent communication across engineering and business teams during high-pressure situations.
 
-## Key Components
+## Core Components
+
 | Component | Description |
 | :--- | :--- |
-| **Severity Matrix** | Standards for incident prioritization (SEV1 - SEV4). |
+| **Incident Classification** | Standards for severity levels (SEV1 - SEV4) and prioritization. |
 | **Response Workflow** | Step-by-step coordination from detection to resolution. |
-| **Communication** | Stakeholder templates and reporting cadence. |
-| **Post-Incident Review** | Root Cause Analysis (RCA) and continuous improvement. |
+| **Communication Strategy** | Templates for stakeholder updates and reporting cadence. |
+| **Post-Incident Analysis** | Structured reviews focused on systemic improvement. |
+
+## Featured Case Study & Postmortem
+To demonstrate these processes in a production environment, see the detailed analysis below:
+
+* [Postmortem: Payment Latency Incident](./postmortem-example-latency.md) - A SEV2 incident report showing detection, root cause analysis (5 Whys), and corrective actions.
+
+## Operational Strategy
+* **Detection:** Utilizing SLO-based alerting via Datadog and Splunk.
+* **Command:** Clear assignment of an Incident Commander (IC) to lead technical response.
+* **Mitigation:** Prioritizing service restoration over deep-dive investigation during the "fire".
+* **Resolution:** Ensuring full monitoring and validation before closing the incident.
 
 ## Why this matters
-Effective incident management is critical for maintaining system reliability, minimizing downtime, and ensuring clear communication across teams during high-pressure situations.
-
-## Featured Scenarios
-* [Case Study: Payment System Latency](./payment-latency-incident.md) - A real-world example of handling a SEV2 incident.
+Effective incident management is the foundation of system reliability. It ensures that failures are handled with technical rigor, minimizing business impact and preventing recurrence through structured learning.
 
 ---
-*Maintained by Vivian Moutinho — Focused on clarity, speed, and accountability.*
+*Maintained by Vivian Moutinho — Focused on operational excellence and system resilience.*
