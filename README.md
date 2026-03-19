@@ -14,10 +14,11 @@ The goal of this playbook is to reduce MTTR (Mean Time to Recovery) and ensure c
 | **Communication Strategy** | Templates for stakeholder updates and reporting cadence. |
 | **Post-Incident Analysis** | Structured reviews focused on systemic improvement. |
 
-## Featured Case Study & Postmortem
-To demonstrate these processes in a production environment, see the detailed analysis below:
+## Featured Scenarios & Postmortems
+Case studies and real-world applications of this playbook:
 
-* [Postmortem: Payment Latency Incident](./postmortem-example-latency.md) - A SEV2 incident report showing detection, root cause analysis (5 Whys), and corrective actions.
+* [Case Study: Payment System Latency](./payment-latency-incident.md) - Full lifecycle of a SEV2 incident from detection to mitigation.
+* [Postmortem Example: Latency Spike](./postmortem-example-latency.md) - Deep-dive report using the "5 Whys" root cause analysis.
 
 ## Operational Strategy
 * **Detection:** Utilizing SLO-based alerting via Datadog and Splunk.
