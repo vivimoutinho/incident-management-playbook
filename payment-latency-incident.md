@@ -1,39 +1,33 @@
-## Scenario: Payment System Latency Incident
+# Case Study: Payment System Latency Incident
 
-### Context
+### Scenario Overview
 Increased latency detected in a payment processing system during peak transaction hours.
 
-### Impact
-- Delayed transaction processing
-- Increased error rates in API responses
-- Potential financial and customer experience impact
+> **Incident Classification:** Severity 2 (High)  
+> **Status:** Resolved  
+> **Detection Source:** Datadog Service Level Objective (SLO) Breach
 
-### Detection
-- Datadog alert triggered: latency above threshold for 5 minutes
-- Spike in response time and error rate observed in dashboards
+---
 
-### Incident Classification
-Severity 2 (High) — partial degradation with significant user impact
+### 1. Detection & Impact
+* **Detection:** Datadog alert triggered: latency above 500ms threshold for 5 consecutive minutes.
+* **Impact:** Delayed transaction processing affecting ~15% of users; increased 5xx error rates in API responses.
 
-### Response
-- Incident declared and incident commander assigned
-- Cross-functional teams engaged (application and infrastructure)
-- Initial communication sent to stakeholders
-- Investigation initiated on recent deployments and infrastructure load
+### 2. Response & Mitigation Strategy
+1. **Incident Declaration:** Incident Commander (IC) assigned within 3 minutes of alert.
+2. **Engagement:** Paged On-call Engineering and Infrastructure teams.
+3. **Investigation:** Analysis of recent CI/CD deployments and cloud resource utilization.
+4. **Mitigation:** * Traffic load balanced across additional auto-scaling groups.
+   * Rate-limiting applied to non-critical background jobs to prioritize payment flow.
 
-### Mitigation
-- Traffic load balanced across additional resources
-- Non-critical processes temporarily limited
-- System performance stabilized
+### 3. Communication Log
+* **T+10min:** Initial internal notification sent to Stakeholders.
+* **T+25min:** Status update: "Mitigation in progress via horizontal scaling."
+* **T+45min:** Resolution: "System stabilized. Monitoring for 15 minutes before closing."
 
-### Communication
-- Regular updates shared every 15 minutes
-- Clear status and next steps communicated to stakeholders
-
-### Resolution
-- Root cause identified as resource saturation during peak load
-- System stabilized after scaling adjustments
-
-### Post-Incident Actions
-- Post-incident review scheduled
-- Action items defined to improve scaling strategy and alert thresholds
+### 4. Post-Incident & Resolution
+* **Root Cause:** Resource saturation (CPU Steal) due to unexpected spike in transaction volume.
+* **Action Items:**
+  * [ ] Adjust HPA (Horizontal Pod Autoscaler) thresholds for the Payment Gateway.
+  * [ ] Implement predictive scaling based on historical peak data.
+  * [ ] Refine alerting to trigger *before* SLO breach (Early Warning System).
